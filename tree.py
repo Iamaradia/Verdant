@@ -5,6 +5,7 @@ class Tree:
     def __init__(self, duration):
         self.elapsed = 0
         self.duration = duration
+        self.alive = True
 
         self.upvotes = 0
         self.downvotes = 0

@@ -7,7 +7,7 @@ class Button:
         self.rect = self.surface.get_rect(topleft=pos)
 
         self.font = pygame.font.SysFont('Arial', font_size)
-        self.text_surface = self.font.render(text, True, (0, 0, 0))
+        self.text_surface = self.font.render(text, True, (255, 255, 255))
         self.text_rect = self.text_surface.get_rect(center=self.rect.center)
 
         self.on_click = on_click
