@@ -1,1 +1,13 @@
-{"users": {}}
+{
+    "users": {
+        "5a72589e-c87d-418b-9f6a-c4fdb2fdac2f": {
+            "name": "LeBron",
+            "xp": 0,
+            "balance": 0,
+            "total_trees": 0,
+            "alive_trees": 0,
+            "dead_trees": 0,
+            "trees": {}
+        }
+    }
+}
