@@ -68,6 +68,7 @@ class App:
             on_click=on_stop_button_click
         )
 
+
     def run(self):
         self.handle_events()
         self.update()
