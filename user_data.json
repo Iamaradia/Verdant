@@ -9,6 +9,7 @@
             "dead_trees": 1,
             "trees": {
                 "0001": {
+                    "type": "oak",
                     "elapsed": 30,
                     "duration": 60,
                     "upvotes": 5,
@@ -17,6 +18,7 @@
                     "end_note": ""
                 },
                 "0002": {
+                    "type": "spruce",
                     "elapsed": 60,
                     "duration": 60,
                     "upvotes": 10,
@@ -25,6 +27,7 @@
                     "end_note": "Felt great and productive"
                 },
                 "0003": {
+                    "type": "spruce",
                     "elapsed": 15,
                     "duration": 45,
                     "upvotes": 2,
