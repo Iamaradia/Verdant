@@ -4,6 +4,7 @@ import sys
 from session import Session
 from button import Button
 from slider import Slider
+from user_handler import User
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -16,6 +17,7 @@ class App:
         self.running = True
         self.dt = 0
         self.font = pygame.font.SysFont(None, 48)
+        self.user = User.get('User')
 
         self.curr_session = None
         self.curr_duration = 10
@@ -67,7 +69,6 @@ class App:
             font_size=20,
             on_click=on_stop_button_click
         )
-
 
     def run(self):
         self.handle_events()
@@ -150,5 +151,8 @@ class App:
 
         self.curr_session = Session(duration)
 
-
+if __name__ == "__main__":
+    app = App()
+    while app.running:
+        app.run()
 

@@ -59,6 +59,15 @@
                     "end_note": "Went alright..."
                 }
             }
+        },
+        "986da862-5c46-4918-b498-fcd60c8d5ecd": {
+            "name": "User",
+            "xp": 0,
+            "balance": 0,
+            "total_trees": 0,
+            "alive_trees": 0,
+            "dead_trees": 0,
+            "trees": {}
         }
     }
 }
