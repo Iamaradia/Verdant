@@ -8,6 +8,15 @@
             "alive_trees": 0,
             "dead_trees": 0,
             "trees": {}
+        },
+        "fa5b5e8b-d4f9-4126-aa89-2c7885efc3e3": {
+            "name": "user",
+            "xp": 1000,
+            "balance": 0,
+            "total_trees": 0,
+            "alive_trees": 0,
+            "dead_trees": 0,
+            "trees": {}
         }
     }
 }
