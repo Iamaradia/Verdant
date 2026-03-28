@@ -9,16 +9,16 @@
             "dead_trees": 1,
             "trees": {
                 "0001": {
-                    "type": "oak",
+                    "type": "default_oak.png",
                     "elapsed": 30,
                     "duration": 60,
                     "upvotes": 5,
                     "downvotes": 1,
                     "start_note": "Study session",
-                    "end_note": ""
+                    "end_note": "Went alright..."
                 },
                 "0002": {
-                    "type": "spruce",
+                    "type": "default_spruce.png",
                     "elapsed": 60,
                     "duration": 60,
                     "upvotes": 10,
@@ -27,7 +27,7 @@
                     "end_note": "Felt great and productive"
                 },
                 "0003": {
-                    "type": "spruce",
+                    "type": "default_spruce.png",
                     "elapsed": 15,
                     "duration": 45,
                     "upvotes": 2,
