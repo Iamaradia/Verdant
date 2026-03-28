@@ -103,9 +103,31 @@ class User:
         self._save()
 
     # Add a tree
-    def add_tree(self, tree):
+    def add_tree(self, tree, elapsed, duration, alive, upvotes, downvotes, start_note, end_note):
         self.total_trees += 1
-        # TODO: Updates the amount of dead or alive trees and to the individual tree section
+
+        # Update alive or dead count
+        if alive:
+            self.alive_trees += 1
+        else:
+            self.dead_trees += 1
+
+        # Generate a zero-padded ID based on the total number of trees
+        tree_id = str(self.total_trees).zfill(4)
+
+        # Add the tree to the trees dict
+        self.trees[tree_id] = {
+            "type": tree,
+            "elapsed": elapsed,
+            "duration": duration,
+            "alive": alive,
+            "upvotes": upvotes,
+            "downvotes": downvotes,
+            "start_note": start_note,
+            "end_note": end_note
+        }
+
+        self._save()
 
     # Deletes the whole data
     def delete(self):

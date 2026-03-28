@@ -4,8 +4,8 @@
             "name": "LeBron",
             "xp": 120,
             "balance": 50,
-            "total_trees": 3,
-            "alive_trees": 2,
+            "total_trees": 5,
+            "alive_trees": 4,
             "dead_trees": 1,
             "trees": {
                 "0001": {
@@ -37,6 +37,26 @@
                     "downvotes": 3,
                     "start_note": "Reading",
                     "end_note": "Got distracted halfway"
+                },
+                "0004": {
+                    "type": "default_oak.png",
+                    "elapsed": 30,
+                    "duration": 60,
+                    "alive": true,
+                    "upvotes": 5,
+                    "downvotes": 1,
+                    "start_note": "Study session",
+                    "end_note": "Went alright..."
+                },
+                "0005": {
+                    "type": "default_oak.png",
+                    "elapsed": 30,
+                    "duration": 60,
+                    "alive": true,
+                    "upvotes": 5,
+                    "downvotes": 1,
+                    "start_note": "Study session",
+                    "end_note": "Went alright..."
                 }
             }
         }
