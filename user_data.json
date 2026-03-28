@@ -2,12 +2,37 @@
     "users": {
         "5a72589e-c87d-418b-9f6a-c4fdb2fdac2f": {
             "name": "LeBron",
-            "xp": 0,
-            "balance": 0,
-            "total_trees": 0,
-            "alive_trees": 0,
-            "dead_trees": 0,
-            "trees": {}
+            "xp": 120,
+            "balance": 50,
+            "total_trees": 3,
+            "alive_trees": 2,
+            "dead_trees": 1,
+            "trees": {
+                "0001": {
+                    "elapsed": 30,
+                    "duration": 60,
+                    "upvotes": 5,
+                    "downvotes": 1,
+                    "start_note": "Study session",
+                    "end_note": ""
+                },
+                "0002": {
+                    "elapsed": 60,
+                    "duration": 60,
+                    "upvotes": 10,
+                    "downvotes": 0,
+                    "start_note": "Workout focus",
+                    "end_note": "Felt great and productive"
+                },
+                "0003": {
+                    "elapsed": 15,
+                    "duration": 45,
+                    "upvotes": 2,
+                    "downvotes": 3,
+                    "start_note": "Reading",
+                    "end_note": "Got distracted halfway"
+                }
+            }
         }
     }
 }
