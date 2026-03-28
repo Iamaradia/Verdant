@@ -142,12 +142,3 @@ class User:
     def __repr__(self):
         return (f"User(name={self.name}, xp={self.xp}, balance={self.balance}, total_trees={self.total_trees},"
                 f" dead_trees={self.dead_trees}, alive_trees={self.alive_trees})")
-
-
-lebron = User.get('LeBron')
-print(User.load('LeBron'))
-
-
-
-
-
