@@ -62,10 +62,10 @@
         },
         "986da862-5c46-4918-b498-fcd60c8d5ecd": {
             "name": "User",
-            "xp": 200,
-            "balance": 95,
-            "total_trees": 16,
-            "alive_trees": 1,
+            "xp": 250,
+            "balance": 115,
+            "total_trees": 17,
+            "alive_trees": 2,
             "dead_trees": 15,
             "trees": {
                 "0001": {
@@ -227,6 +227,16 @@
                     "downvotes": 0,
                     "start_note": "",
                     "end_note": ""
+                },
+                "0017": {
+                    "type": "oak.png",
+                    "elapsed": 10,
+                    "duration": 10,
+                    "alive": true,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "ha",
+                    "end_note": "no"
                 }
             }
         }
