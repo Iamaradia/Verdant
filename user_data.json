@@ -29,7 +29,7 @@
                     "end_note": "Felt great and productive"
                 },
                 "00030": {
-                    "type": "default_spruce.png",
+                    "type": "dead_spruce.png",
                     "elapsed": 15,
                     "duration": 45,
                     "alive": false,
@@ -72,7 +72,7 @@
                     "type": "oak.png",
                     "elapsed": 0.75,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
@@ -82,7 +82,7 @@
                     "type": "oak.png",
                     "elapsed": 0.45,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
@@ -92,7 +92,7 @@
                     "type": "oak.png",
                     "elapsed": 0.59,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
@@ -102,7 +102,7 @@
                     "type": "oak.png",
                     "elapsed": 2.68,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
@@ -112,14 +112,14 @@
                     "type": "oak.png",
                     "elapsed": 0.38,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
                     "end_note": ""
                 },
                 "0006": {
-                    "type": "oak.png",
+                    "type": "dead_oak.png",
                     "elapsed": 0.27,
                     "duration": 10,
                     "alive": false,
@@ -129,7 +129,7 @@
                     "end_note": ""
                 },
                 "0007": {
-                    "type": "spruce.png",
+                    "type": "dead_crimson_spruce.png",
                     "elapsed": 1.41,
                     "duration": 10,
                     "alive": false,
@@ -139,27 +139,27 @@
                     "end_note": ""
                 },
                 "0008": {
-                    "type": "spruce.png",
+                    "type": "crimson_spruce.png",
                     "elapsed": 0.26,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
                     "end_note": ""
                 },
                 "0009": {
-                    "type": "spruce.png",
+                    "type": "crimson_spruce.png",
                     "elapsed": 0.24,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
                     "end_note": ""
                 },
                 "0010": {
-                    "type": "spruce.png",
+                    "type": "dead_spruce.png",
                     "elapsed": 0.25,
                     "duration": 10,
                     "alive": false,
@@ -169,7 +169,7 @@
                     "end_note": ""
                 },
                 "0011": {
-                    "type": "spruce.png",
+                    "type": "dead_spruce.png",
                     "elapsed": 0.37,
                     "duration": 10,
                     "alive": false,
@@ -179,7 +179,7 @@
                     "end_note": ""
                 },
                 "0012": {
-                    "type": "cherry_oak.png",
+                    "type": "dead_cherry_oak.png",
                     "elapsed": 0.32,
                     "duration": 10,
                     "alive": false,
@@ -189,7 +189,7 @@
                     "end_note": ""
                 },
                 "0013": {
-                    "type": "oak.png",
+                    "type": "cherry_oak.png",
                     "elapsed": 10,
                     "duration": 10,
                     "alive": true,
@@ -202,14 +202,14 @@
                     "type": "oak.png",
                     "elapsed": 0.41,
                     "duration": 10,
-                    "alive": false,
+                    "alive": true,
                     "upvotes": 0,
                     "downvotes": 0,
                     "start_note": "",
                     "end_note": ""
                 },
                 "0015": {
-                    "type": "oak.png",
+                    "type": "dead_oak.png",
                     "elapsed": 0.22,
                     "duration": 10,
                     "alive": false,
@@ -219,7 +219,7 @@
                     "end_note": ""
                 },
                 "0016": {
-                    "type": "oak.png",
+                    "type": "dead_oak.png",
                     "elapsed": 1.19,
                     "duration": 10,
                     "alive": false,
