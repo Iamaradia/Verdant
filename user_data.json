@@ -8,7 +8,7 @@
             "alive_trees": 4,
             "dead_trees": 1,
             "trees": {
-                "0001": {
+                "00010": {
                     "type": "default_oak.png",
                     "elapsed": 30,
                     "duration": 60,
@@ -18,7 +18,7 @@
                     "start_note": "Study session",
                     "end_note": "Went alright..."
                 },
-                "0002": {
+                "00020": {
                     "type": "default_spruce.png",
                     "elapsed": 60,
                     "duration": 60,
@@ -28,7 +28,7 @@
                     "start_note": "Workout focus",
                     "end_note": "Felt great and productive"
                 },
-                "0003": {
+                "00030": {
                     "type": "default_spruce.png",
                     "elapsed": 15,
                     "duration": 45,
@@ -38,7 +38,7 @@
                     "start_note": "Reading",
                     "end_note": "Got distracted halfway"
                 },
-                "0004": {
+                "00040": {
                     "type": "default_oak.png",
                     "elapsed": 30,
                     "duration": 60,
@@ -48,7 +48,7 @@
                     "start_note": "Study session",
                     "end_note": "Went alright..."
                 },
-                "0005": {
+                "00050": {
                     "type": "default_oak.png",
                     "elapsed": 30,
                     "duration": 60,
@@ -62,12 +62,173 @@
         },
         "986da862-5c46-4918-b498-fcd60c8d5ecd": {
             "name": "User",
-            "xp": 0,
-            "balance": 0,
-            "total_trees": 0,
-            "alive_trees": 0,
-            "dead_trees": 0,
-            "trees": {}
+            "xp": 200,
+            "balance": 95,
+            "total_trees": 16,
+            "alive_trees": 1,
+            "dead_trees": 15,
+            "trees": {
+                "0001": {
+                    "type": "oak.png",
+                    "elapsed": 0.75,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0002": {
+                    "type": "oak.png",
+                    "elapsed": 0.45,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0003": {
+                    "type": "oak.png",
+                    "elapsed": 0.59,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0004": {
+                    "type": "oak.png",
+                    "elapsed": 2.68,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0005": {
+                    "type": "oak.png",
+                    "elapsed": 0.38,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0006": {
+                    "type": "oak.png",
+                    "elapsed": 0.27,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0007": {
+                    "type": "spruce.png",
+                    "elapsed": 1.41,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0008": {
+                    "type": "spruce.png",
+                    "elapsed": 0.26,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0009": {
+                    "type": "spruce.png",
+                    "elapsed": 0.24,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0010": {
+                    "type": "spruce.png",
+                    "elapsed": 0.25,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0011": {
+                    "type": "spruce.png",
+                    "elapsed": 0.37,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0012": {
+                    "type": "cherry_oak.png",
+                    "elapsed": 0.32,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0013": {
+                    "type": "oak.png",
+                    "elapsed": 10,
+                    "duration": 10,
+                    "alive": true,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0014": {
+                    "type": "oak.png",
+                    "elapsed": 0.41,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0015": {
+                    "type": "oak.png",
+                    "elapsed": 0.22,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                },
+                "0016": {
+                    "type": "oak.png",
+                    "elapsed": 1.19,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "",
+                    "end_note": ""
+                }
+            }
         }
     }
 }

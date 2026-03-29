@@ -186,6 +186,8 @@ class TreeInfoBox:
         self.tree         = None
         self.anchor_x     = 0
         self.anchor_y     = 0
+        self.box_rect     = None   # tracked every draw for hit testing
+        self.close_rect   = None   # X button rect
 
         self.padding      = 12
         self.box_width    = 230
@@ -197,6 +199,8 @@ class TreeInfoBox:
         self.alive_color  = (90, 195, 90)
         self.dead_color   = (195, 75, 75)
         self.div_color    = (50, 50, 50)
+        self.close_color  = (150, 150, 150)
+        self.close_hover  = (220, 80, 80)
 
     def show(self, tree, anchor_x, anchor_y):
         self.visible  = True
@@ -205,8 +209,18 @@ class TreeInfoBox:
         self.anchor_y = anchor_y
 
     def hide(self):
-        self.visible = False
-        self.tree    = None
+        self.visible   = False
+        self.tree      = None
+        self.box_rect  = None
+        self.close_rect = None
+
+    def contains(self, pos):
+        """Returns True if pos is inside the info box."""
+        return self.box_rect is not None and self.box_rect.collidepoint(pos)
+
+    def close_clicked(self, pos):
+        """Returns True if pos is on the X button."""
+        return self.close_rect is not None and self.close_rect.collidepoint(pos)
 
     def _lines(self):
         d      = self.tree["data"]
@@ -217,68 +231,73 @@ class TreeInfoBox:
         prog   = f'{d["elapsed"]} / {d["duration"]} min  ({pct}%)'
 
         return [
-            ("title",  f'Tree  #{self.tree["id"]}',          self.text_color),
-            ("body",   d["type"].replace(".png", ""),         self.muted_color),
-            ("div",    None,                                  None),
-            ("label",  "STATUS",                              self.muted_color),
-            ("body",   status,                                s_col),
-            ("label",  "PROGRESS",                            self.muted_color),
-            ("body",   prog,                                  self.text_color),
-            ("label",  "VOTES",                               self.muted_color),
-            ("body",   f'Up: {d["upvotes"]}   Down: {d["downvotes"]}', self.text_color),
-            ("div",    None,                                  None),
-            ("label",  "START NOTE",                          self.muted_color),
-            ("body",   d["start_note"],                       self.text_color),
-            ("label",  "END NOTE",                            self.muted_color),
-            ("body",   d["end_note"],                         self.text_color),
+            ("title",  f'Tree  #{self.tree["id"]}',                          self.text_color),
+            ("body",   d["type"].replace(".png", ""),                         self.muted_color),
+            ("div",    None,                                                  None),
+            ("label",  "STATUS",                                              self.muted_color),
+            ("body",   status,                                                s_col),
+            ("label",  "PROGRESS",                                            self.muted_color),
+            ("body",   prog,                                                  self.text_color),
+            ("label",  "VOTES",                                               self.muted_color),
+            ("body",   f'Up: {d["upvotes"]}   Down: {d["downvotes"]}',       self.text_color),
+            ("div",    None,                                                  None),
+            ("label",  "START NOTE",                                          self.muted_color),
+            ("body",   d["start_note"],                                       self.text_color),
+            ("label",  "END NOTE",                                            self.muted_color),
+            ("body",   d["end_note"],                                         self.text_color),
         ]
 
     def draw(self, screen):
         if not self.visible or self.tree is None:
             return
 
-        lines      = self._lines()
-        lh_title   = self.font_title.get_height()
-        lh_label   = self.font_label.get_height()
-        lh_body    = self.font_body.get_height()
-        div_h      = 10
-        p          = self.padding
+        lines    = self._lines()
+        lh_title = self.font_title.get_height()
+        lh_label = self.font_label.get_height()
+        lh_body  = self.font_body.get_height()
+        div_h    = 10
+        p        = self.padding
 
-        # Measure height
         total_h = p * 2
-        for kind, text, _ in lines:
-            if kind == "div":
-                total_h += div_h
-            elif kind == "title":
-                total_h += lh_title + self.line_gap + 2
-            elif kind == "label":
-                total_h += lh_label + self.line_gap
-            else:
-                total_h += lh_body + self.line_gap + 4
+        for kind, _, _ in lines:
+            if kind == "div":   total_h += div_h
+            elif kind == "title": total_h += lh_title + self.line_gap + 2
+            elif kind == "label": total_h += lh_label + self.line_gap
+            else:               total_h += lh_body  + self.line_gap + 4
 
-        sw, sh = screen.get_size()
-        bw, bh = self.box_width, total_h
+        sw, sh   = screen.get_size()
+        bw, bh   = self.box_width, total_h
 
-        # Pin box to right of tree, nudge onto screen
         bx = self.anchor_x + 12
         by = self.anchor_y - bh // 2
         if bx + bw > sw - 4: bx = self.anchor_x - bw - 12
         if by < 4:            by = 4
         if by + bh > sh - 4:  by = sh - bh - 4
 
-        # Background + border
-        rect = pygame.Rect(bx, by, bw, bh)
-        pygame.draw.rect(screen, self.bg_color,    rect, border_radius=7)
-        pygame.draw.rect(screen, self.border_color, rect, width=1, border_radius=7)
+        self.box_rect = pygame.Rect(bx, by, bw, bh)
+
+        pygame.draw.rect(screen, self.bg_color,     self.box_rect, border_radius=7)
+        pygame.draw.rect(screen, self.border_color, self.box_rect, width=1, border_radius=7)
+
+        # X button
+        close_size     = 16
+        close_margin   = 6
+        self.close_rect = pygame.Rect(
+            bx + bw - close_size - close_margin,
+            by + close_margin,
+            close_size, close_size
+        )
+        mouse_pos  = pygame.mouse.get_pos()
+        x_color    = self.close_hover if self.close_rect.collidepoint(mouse_pos) else self.close_color
+        cx, cy_btn = self.close_rect.centerx, self.close_rect.centery
+        pygame.draw.line(screen, x_color, (cx - 4, cy_btn - 4), (cx + 4, cy_btn + 4), 2)
+        pygame.draw.line(screen, x_color, (cx + 4, cy_btn - 4), (cx - 4, cy_btn + 4), 2)
 
         cy = by + p
         for kind, text, color in lines:
             if kind == "div":
-                pygame.draw.line(
-                    screen, self.div_color,
-                    (bx + p, cy + div_h // 2),
-                    (bx + bw - p, cy + div_h // 2)
-                )
+                pygame.draw.line(screen, self.div_color,
+                    (bx + p, cy + div_h // 2), (bx + bw - p, cy + div_h // 2))
                 cy += div_h
             elif kind == "title":
                 surf = self.font_title.render(text, True, color)
@@ -339,26 +358,34 @@ class Garden:
         return self._scaled_tree_cache[key]
 
     def handle_click(self, mouse_pos, camera):
-        """Called on MOUSEBUTTONUP to select/deselect a tree."""
-        zoom       = camera.zoom
+        # Close button deselects
+        if self.info_box.close_clicked(mouse_pos):
+            self.selected_tree = None
+            return
+
+        # Clicks inside the box do nothing
+        if self.info_box.contains(mouse_pos):
+            return
+
+        zoom = camera.zoom
         scaled_tile = self._get_scaled_tile(zoom)
-        tile_w     = scaled_tile.get_width()
-        tile_h     = scaled_tile.get_height()
+        tile_w = scaled_tile.get_width()
+        tile_h = scaled_tile.get_height()
 
         clicked = None
         for tree in sorted(self.trees, key=lambda t: t["grid_x"] + t["grid_y"]):
-            sx, sy  = grid_to_screen(tree["grid_x"], tree["grid_y"])
-            img     = self._get_scaled_tree(tree["image"], tree["id"], zoom)
-            tw, th  = img.get_size()
-            draw_x  = sx * zoom + camera.offset[0] + (tile_w / 2) - (tw / 2)
-            draw_y  = sy * zoom + camera.offset[1] + (tile_h / 2) - th
+            sx, sy = grid_to_screen(tree["grid_x"], tree["grid_y"])
+            img = self._get_scaled_tree(tree["image"], tree["id"], zoom)
+            tw, th = img.get_size()
+            draw_x = sx * zoom + camera.offset[0] + (tile_w / 2) - (tw / 2)
+            draw_y = sy * zoom + camera.offset[1] + (tile_h / 2) - th
             if pygame.Rect(draw_x, draw_y, tw, th).collidepoint(mouse_pos):
                 clicked = tree
 
         if clicked and clicked is not self.selected_tree:
             self.selected_tree = clicked
         else:
-            self.selected_tree = None   # click same tree or empty space = deselect
+            self.selected_tree = None
 
     def draw(self, screen, camera):
         zoom = camera.zoom

@@ -1,17 +1,17 @@
 import pygame
 import subprocess
 import sys
-from app import App
+from user_handler import User, load_data
 
 pygame.init()
 
-WIDTH, HEIGHT = 450, 600
+WIDTH, HEIGHT = 450, 700
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Verdant")
 
 # Colors
-BG = (1, 50, 32)
-BOX_BG = (5, 31, 32)
+BG        = (1, 50, 32)
+BOX_BG    = (5, 31, 32)
 BOX_LINE  = (50, 50, 65)
 BOX_HOVER = (45, 45, 60)
 WHITE     = (255, 255, 255)
@@ -25,6 +25,8 @@ font_title    = pygame.font.SysFont("Arial", 38, bold=True)
 font_subtitle = pygame.font.SysFont("Arial", 15)
 font_btn      = pygame.font.SysFont("Arial", 20, bold=True)
 font_desc     = pygame.font.SysFont("Arial", 14)
+font_stat     = pygame.font.SysFont("Arial", 13)
+font_stat_val = pygame.font.SysFont("Arial", 13, bold=True)
 
 
 # Draws a rectangle with rounded corners and an optional border
@@ -56,10 +58,20 @@ BUTTONS = [
     },
 ]
 
+# Stat cards shown between the header and the buttons
+# Each has a label, the user attribute to read, and an accent color
+STATS = [
+    {"label": "XP",      "key": "xp",          "color": GOLD},
+    {"label": "Balance", "key": "balance",      "color": GREEN},
+    {"label": "Trees",   "key": "total_trees",  "color": BLUE},
+    {"label": "Alive",   "key": "alive_trees",  "color": GREEN},
+    {"label": "Dead",    "key": "dead_trees",   "color": (200, 80, 80)},
+]
+
 # Box layout constants
 BOX_H   = 90
 BOX_W   = WIDTH - 64
-START_Y = 220
+START_Y = 330
 PADDING = 18
 
 
@@ -78,6 +90,45 @@ def open_page(filename):
     subprocess.Popen([sys.executable, filename])
 
 
+# Reads fresh user data from the JSON file every frame so stats stay up to date
+def get_user_stats():
+    data = load_data()
+    for user in data["users"].values():
+        if user["name"] == "User":
+            return user
+    return None
+
+
+# Draws the stat cards between the header and the buttons
+def draw_stats(user_data):
+    if not user_data:
+        return
+
+    # Each stat card width based on how many stats there are
+    card_count = len(STATS)
+    card_w     = (WIDTH - 64) // card_count
+    card_h     = 54
+    card_y     = 195
+
+    for i, stat in enumerate(STATS):
+        x = 32 + i * card_w
+
+        # Card background
+        draw_rounded_rect(screen, BOX_BG, (x + 2, card_y, card_w - 4, card_h), radius=10, border_color=BOX_LINE)
+
+        # Colored top accent line
+        pygame.draw.rect(screen, stat["color"], (x + 2, card_y, card_w - 4, 3), border_radius=2)
+
+        # Stat label
+        label = font_stat.render(stat["label"], True, MUTED)
+        screen.blit(label, (x + (card_w - label.get_width()) // 2, card_y + 10))
+
+        # Stat value
+        value = str(user_data.get(stat["key"], 0))
+        val_surf = font_stat_val.render(value, True, stat["color"])
+        screen.blit(val_surf, (x + (card_w - val_surf.get_width()) // 2, card_y + 28))
+
+
 def draw():
     screen.fill(BG)
 
@@ -89,12 +140,20 @@ def draw():
     sub = font_subtitle.render("Grow trees. Earn XP. Stay focused.", True, MUTED)
     screen.blit(sub, (WIDTH // 2 - sub.get_width() // 2, 130))
 
-    # Divider line between header and buttons
-    pygame.draw.line(screen, BOX_LINE, (32, 180), (WIDTH - 32, 180), 1)
+    # Divider line between header and stats
+    pygame.draw.line(screen, BOX_LINE, (32, 178), (WIDTH - 32, 178), 1)
+
+    # Stat cards
+    user_stats = get_user_stats()
+    draw_stats(user_stats)
+
+    # Divider line between stats and buttons
+    pygame.draw.line(screen, BOX_LINE, (32, 265), (WIDTH - 32, 265), 1)
 
     mouse_pos = pygame.mouse.get_pos()
     hovered   = get_hovered(mouse_pos)
 
+    # Draw each navigation button
     for i, btn in enumerate(BUTTONS):
         x = 32
         y = START_Y + i * (BOX_H + PADDING)
