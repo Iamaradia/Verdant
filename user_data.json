@@ -62,11 +62,11 @@
         },
         "986da862-5c46-4918-b498-fcd60c8d5ecd": {
             "name": "User",
-            "xp": 300,
-            "balance": 135,
-            "total_trees": 18,
-            "alive_trees": 3,
-            "dead_trees": 15,
+            "xp": 410,
+            "balance": 180,
+            "total_trees": 21,
+            "alive_trees": 5,
+            "dead_trees": 16,
             "trees": {
                 "0001": {
                     "type": "oak.png",
@@ -247,6 +247,36 @@
                     "downvotes": 0,
                     "start_note": "k",
                     "end_note": "k"
+                },
+                "0019": {
+                    "type": "oak.png",
+                    "elapsed": 10,
+                    "duration": 10,
+                    "alive": true,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "Im gonna do calc rn",
+                    "end_note": "woah i did nothing (tiktok)"
+                },
+                "0020": {
+                    "type": "oak.png",
+                    "elapsed": 10,
+                    "duration": 10,
+                    "alive": true,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "Study Phsics",
+                    "end_note": "done"
+                },
+                "0021": {
+                    "type": "dead_oak.png",
+                    "elapsed": 5.58,
+                    "duration": 10,
+                    "alive": false,
+                    "upvotes": 0,
+                    "downvotes": 0,
+                    "start_note": "hmwrk",
+                    "end_note": "didnt doa ntyhg"
                 }
             }
         }
